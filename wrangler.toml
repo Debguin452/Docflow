@@ -1,0 +1,29 @@
+name                   = "docflow"
+compatibility_date     = "2024-01-15"
+compatibility_flags    = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+[build]
+command = "npm run build"
+cwd     = "."
+
+[[kv_namespaces]]
+binding    = "DOCFLOW_KV"
+id         = "REPLACE_WITH_PRODUCTION_KV_ID"
+preview_id = "REPLACE_WITH_PREVIEW_KV_ID"
+
+[vars]
+ENVIRONMENT          = "production"
+MAX_FILE_SIZE_MB     = "100"
+RATE_LIMIT_WINDOW_S  = "60"
+ANALYTICS_RATE_LIMIT = "20"
+STATS_RATE_LIMIT     = "60"
+SITE_URL             = "https://docflow.pages.dev"
+
+[env.preview.vars]
+ENVIRONMENT = "preview"
+SITE_URL    = "https://preview.docflow.pages.dev"
+
+[dev]
+local_protocol = "http"
+port           = 8788
