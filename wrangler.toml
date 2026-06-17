@@ -9,8 +9,8 @@ cwd     = "."
 
 [[kv_namespaces]]
 binding    = "DOCFLOW_KV"
-id         = "REPLACE_WITH_PRODUCTION_KV_ID"
-preview_id = "REPLACE_WITH_PREVIEW_KV_ID"
+id         = "7eec9df554144e938fc3615137e21e6c"
+preview_id = "7eec9df554144e938fc3615137e21e6c"
 
 [vars]
 ENVIRONMENT          = "production"
@@ -18,7 +18,7 @@ MAX_FILE_SIZE_MB     = "100"
 RATE_LIMIT_WINDOW_S  = "60"
 ANALYTICS_RATE_LIMIT = "20"
 STATS_RATE_LIMIT     = "60"
-SITE_URL             = "https://docflow.pages.dev"
+SITE_URL             = "https://filedit.pages.dev"
 
 [env.preview.vars]
 ENVIRONMENT = "preview"
