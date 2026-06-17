@@ -142,5 +142,4 @@ export default function BackgroundRemover() {
       </div>
     </ToolLayout>
   )
-                                       }
-        
+}
