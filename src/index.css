@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-bg: #ffffff;
+    --color-surface: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-text: #111827;
+    --color-text-muted: #6b7280;
+    --color-success: #059669;
+    --color-error: #dc2626;
+    --color-warning: #d97706;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: #dbeafe;
+    color: #1e3a8a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-gray-700 text-sm font-semibold rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-gray-600 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors duration-150;
+  }
+
+  .card {
+    @apply bg-white border border-gray-200 rounded-xl shadow-card;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:border-primary-200 transition-all duration-200;
+  }
+
+  .tool-card {
+    @apply card-hover p-5 cursor-pointer;
+  }
+
+  .input-base {
+    @apply w-full px-3 py-2 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-150;
+  }
+
+  .label-base {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-widest text-primary-600;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-gray-900 leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-500 leading-relaxed;
+  }
+
+  .divider {
+    @apply border-t border-gray-100;
+  }
+
+  /* Drop zone styles */
+  .dropzone-base {
+    @apply border-2 border-dashed border-gray-200 rounded-xl p-10 text-center transition-all duration-200 cursor-pointer;
+  }
+
+  .dropzone-active {
+    @apply border-primary-400 bg-primary-50;
+  }
+
+  .dropzone-hover {
+    @apply border-gray-300 bg-gray-50;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-1.5 bg-gray-100 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-primary-600 rounded-full transition-all duration-300 ease-out;
+  }
+
+  /* Tool icon container */
+  .tool-icon-container {
+    @apply w-10 h-10 flex items-center justify-center rounded-lg bg-primary-50 text-primary-600 shrink-0;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-150;
+  }
+
+  .nav-link-active {
+    @apply text-sm font-medium text-primary-600;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 text-2xs font-semibold rounded uppercase tracking-wide;
+  }
+
+  .badge-blue {
+    @apply badge bg-primary-50 text-primary-700;
+  }
+
+  .badge-green {
+    @apply badge bg-emerald-50 text-emerald-700;
+  }
+
+  .badge-orange {
+    @apply badge bg-orange-50 text-orange-700;
+  }
+
+  .badge-gray {
+    @apply badge bg-gray-100 text-gray-600;
+  }
+
+  /* File item */
+  .file-item {
+    @apply flex items-center gap-3 p-3 bg-gray-50 border border-gray-100 rounded-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
