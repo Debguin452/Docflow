@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://docflow.pages.dev/sitemap.xml
+
+# Crawl delay for respectful indexing
+Crawl-delay: 1
