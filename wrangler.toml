@@ -1,0 +1,25 @@
+name                   = "filedit"
+compatibility_date     = "2024-01-15"
+compatibility_flags    = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+[[kv_namespaces]]
+binding    = "FILEDIT_KV"
+id         = "7eec9df554144e938fc3615137e21e6c"
+preview_id = "7eec9df554144e938fc3615137e21e6c"
+
+[vars]
+ENVIRONMENT          = "production"
+MAX_FILE_SIZE_MB     = "100"
+RATE_LIMIT_WINDOW_S  = "60"
+ANALYTICS_RATE_LIMIT = "20"
+STATS_RATE_LIMIT     = "60"
+SITE_URL             = "https://filedit.pages.dev"
+
+[env.preview.vars]
+ENVIRONMENT = "preview"
+SITE_URL    = "https://preview.filedit.pages.dev"
+
+[dev]
+local_protocol = "http"
+port           = 8788

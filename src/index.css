@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-bg: #ffffff;
+    --color-surface: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-text: #111827;
+    --color-text-muted: #6b7280;
+    --color-success: #059669;
+    --color-error: #dc2626;
+    --color-warning: #d97706;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: #dbeafe;
+    color: #1e3a8a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-gray-700 text-sm font-semibold rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-gray-600 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors duration-150;
+  }
+
+  .card {
+    @apply bg-white border border-gray-200 rounded-xl shadow-card;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:border-primary-200 transition-all duration-200;
+  }
+
+  .tool-card {
+    @apply card-hover p-5 cursor-pointer;
+  }
+
+  .input-base {
+    @apply w-full px-3 py-2 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-150;
+  }
+
+  .label-base {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-widest text-primary-600;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-gray-900 leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-500 leading-relaxed;
+  }
+
+  .divider {
+    @apply border-t border-gray-100;
+  }
+
+  /* Drop zone styles */
+  .dropzone-base {
+    @apply border-2 border-dashed border-gray-200 rounded-xl p-10 text-center transition-all duration-200 cursor-pointer;
+  }
+
+  .dropzone-active {
+    @apply border-primary-400 bg-primary-50;
+  }
+
+  .dropzone-hover {
+    @apply border-gray-300 bg-gray-50;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-1.5 bg-gray-100 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-primary-600 rounded-full transition-all duration-300 ease-out;
+  }
+
+  /* Tool icon container */
+  .tool-icon-container {
+    @apply w-10 h-10 flex items-center justify-center rounded-lg bg-primary-50 text-primary-600 shrink-0;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-150;
+  }
+
+  .nav-link-active {
+    @apply text-sm font-medium text-primary-600;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 text-2xs font-semibold rounded uppercase tracking-wide;
+  }
+
+  .badge-blue {
+    @apply badge bg-primary-50 text-primary-700;
+  }
+
+  .badge-green {
+    @apply badge bg-emerald-50 text-emerald-700;
+  }
+
+  .badge-orange {
+    @apply badge bg-orange-50 text-orange-700;
+  }
+
+  .badge-gray {
+    @apply badge bg-gray-100 text-gray-600;
+  }
+
+  /* File item */
+  .file-item {
+    @apply flex items-center gap-3 p-3 bg-gray-50 border border-gray-100 rounded-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Motion system
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Scroll-reveal: elements start hidden and ease in when they enter the viewport */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0) scale(0.98);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal[data-dir='left']  { transform: translate3d(-32px, 0, 0); }
+.reveal[data-dir='right'] { transform: translate3d(32px, 0, 0); }
+.reveal[data-dir='none']  { transform: none; }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Pointer spotlight: a soft glow that follows the cursor (see usePointerGlow) */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+  --mx: 50%;
+  --my: 50%;
+}
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--mx) var(--my),
+    rgba(37, 99, 235, 0.13),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* Subtle 3D tilt driven by --rx / --ry (see usePointerGlow) */
+.tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s;
+}
+
+/* Animated gradient text */
+.text-gradient-animated {
+  background-image: linear-gradient(90deg, #2563eb, #7c3aed, #0ea5e9, #2563eb);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientX 8s ease infinite;
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 37%, #f3f4f6 63%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+  border-radius: 0.5rem;
+}
+
+/* Progress bar: moving diagonal stripes + shimmer sweep while active */
+.progress-active {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.22) 25%, transparent 25%, transparent 50%,
+    rgba(255, 255, 255, 0.22) 50%, rgba(255, 255, 255, 0.22) 75%, transparent 75%
+  );
+  background-size: 28px 28px;
+  animation: stripes 1s linear infinite;
+}
+
+/* Drop zone: "marching ants" border while a file is dragged over */
+.dz-ants {
+  background-image:
+    repeating-linear-gradient(0deg,  #3b82f6 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(90deg, #3b82f6 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(180deg, #3b82f6 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(270deg, #3b82f6 0 8px, transparent 8px 16px);
+  background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+  animation: ants 0.9s linear infinite;
+}
+@keyframes ants {
+  to { background-position: 0 16px, 16px 0, 100% -16px, -16px 100%; }
+}
+
+/* Button ripple */
+.ripple-host { position: relative; overflow: hidden; }
+.ripple {
+  position: absolute;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.25;
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple 0.6s ease-out forwards;
+}
+@keyframes ripple { to { transform: scale(1); opacity: 0; } }
+
+/* Animated nav underline */
+.nav-underline { position: relative; }
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem; right: 0.75rem; bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: #2563eb;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-underline:hover::after,
+.nav-underline[aria-current='page']::after { transform: scaleX(1); }
+
+/* Page-level view transitions (Chromium/Safari) */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root) { animation: 0.18s ease-in both vtOut; }
+  ::view-transition-new(root) { animation: 0.32s cubic-bezier(0.16, 1, 0.3, 1) both vtIn; }
+}
+@keyframes vtOut { to   { opacity: 0; transform: translateY(-6px); } }
+@keyframes vtIn  { from { opacity: 0; transform: translateY(10px); } }
+
+/* Accordion height animation without measuring: grid-template-rows 0fr → 1fr */
+.accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accordion-body[data-open='true'] { grid-template-rows: 1fr; }
+.accordion-body > div { overflow: hidden; }
+
+/* Skip link (a11y) */
+.skip-link {
+  position: fixed; left: 1rem; top: -4rem; z-index: 100;
+  padding: 0.5rem 1rem; border-radius: 0.5rem;
+  background: #2563eb; color: #fff; font-weight: 600; font-size: 0.875rem;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Respect users who prefer less motion: no animation, no parallax, instant reveals */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .tilt { transform: none !important; }
+}

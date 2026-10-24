@@ -1,0 +1,4 @@
+# Cloudflare Pages: Functions handle /api/* automatically.
+# Everything else falls back to SPA index.html.
+/sitemap.xml    /api/sitemap    200
+/*    /index.html    200
